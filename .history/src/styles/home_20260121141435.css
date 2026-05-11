@@ -1,0 +1,22 @@
+.title-home {
+    font-size: 1rem;
+    font-weight: medium;
+    color: #A09570;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.subtitle-home {
+    font-size: 0.9rem;
+    font-weight: medium;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.Logo-home {
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 120px;
+    height: auto;
+}

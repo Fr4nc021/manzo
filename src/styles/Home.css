@@ -1,0 +1,233 @@
+.home-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 1rem 8rem;
+  position: relative;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* camada extra para glass funcionar melhor */
+.home-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  z-index: -1;
+}
+
+/* Degradê no topo: contraste para o logo sobre a foto */
+.home-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: min(58vh, 380px);
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.97) 0%,
+    rgba(0, 0, 0, 0.72) 38%,
+    rgba(0, 0, 0, 0.4) 68%,
+    rgba(0, 0, 0, 0.12) 90%,
+    transparent 100%
+  );
+}
+
+.home-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 0;
+  padding-top: 1.25rem;
+}
+
+/* Card estilo mockup: vidro claro, cantos bem arredondados */
+.home-address-glass {
+  padding: 1.1rem 1.5rem 1.15rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(22px) saturate(1.4);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  max-width: min(100%, 19.5rem);
+}
+
+.title-home {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000000;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.subtitle-home {
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0.5rem;
+  max-width: 100%;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo no topo, escala próxima ao mockup */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+  padding-bottom: 0.25rem;
+}
+
+.logo-container img {
+  width: min(200px, 56vw);
+  height: auto;
+  filter: drop-shadow(0 2px 16px rgba(0, 0, 0, 0.35));
+}
+
+/* Botões fixados na base da hero (como landing mobile típica) */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 2rem;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
+}
+
+
+/* Botão base */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 320px;
+  padding: 16px 26px;
+
+  border-radius: 999px; /* pill button */
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.35);
+
+  transition: all 0.25s ease;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+
+/* Botão principal (Ver Cardápio) */
+.btn.primary {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.15)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* Botão secundário (Whats) */
+.btn.secondary {
+  background: linear-gradient(
+    135deg,
+    rgba(160, 149, 112, 0.35),
+    rgba(160, 149, 112, 0.18)
+  );
+
+  border: 1px solid rgba(160, 149, 112, 0.45);
+  color: #ffffff;
+}
+
+
+/* Efeito hover */
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.btn.primary:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.25)
+  );
+}
+
+.btn.secondary:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(160, 149, 112, 0.45),
+    rgba(160, 149, 112, 0.25)
+  );
+}
+
+/* Responsivo Mobile */
+@media (max-width: 768px) {
+  .home-section {
+    background-attachment: scroll;
+    /* Menos reserva inferior: nav some até a 1ª rolagem — botões ficam mais baixo na abertura */
+    padding: 0 1rem 4.5rem;
+  }
+
+  .home-section::before {
+    background-attachment: scroll;
+  }
+
+  .logo-container img {
+    width: min(140px, 42vw);
+  }
+
+  .buttons-container {
+    padding-top: 1.5rem;
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+  }
+}
+

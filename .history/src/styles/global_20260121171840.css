@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #ffffff;
+
+  min-height: 100vh;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* camada extra para glass funcionar melhor */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: inherit;
+  z-index: -1;
+}
+
+:root {
+  --bg-image: url("/src/assets/bg-desktop.jpg");
+}
+
+@media (max-width: 768px) {
+  :root {
+    --bg-image: url("/src/assets/bg-mobile.jpg");
+  }
+}
+

@@ -1,0 +1,70 @@
+/* container do glass */
+.bottom-nav-glass {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  z-index: 100;
+}
+
+/* nav interna */
+.bottom-nav {
+  position: relative;
+  width: 520px;
+  max-width: 90vw;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+/* botões */
+.nav-item {
+  font-family: 'Poppins', sans-serif;
+
+  background: transparent;
+  border: none;
+ 
+  padding: 10px 26px;
+  min-width: 96px;
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1;
+
+  cursor: pointer;
+  z-index: 2;
+}
+
+.nav-item.active {
+  color: #ffffff;
+}
+
+/* indicador deslizante */
+.active-indicator {
+  position: absolute;
+  top: 8px;
+  left: 0;
+
+  height: calc(100% - 16px);
+  background: #A09570;
+  border-radius: 999px;
+
+  transition: transform 0.3s ease, width 0.3s ease;
+  z-index: 1;
+}
+

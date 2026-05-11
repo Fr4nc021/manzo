@@ -1,0 +1,235 @@
+.reserva-section {
+  width: 100%;
+  padding: 4rem 1.5rem 0;
+  background: #000000;
+  position: relative;
+  z-index: 1;
+}
+
+.reserva-container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título Principal */
+.reserva-title {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.reserva-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+  background: #A09570;
+}
+
+/* Descrição */
+.reserva-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  max-width: 600px;
+  margin: 1rem 0 3rem;
+  line-height: 1.6;
+}
+
+/* Botão WhatsApp */
+.reserva-whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 1.25rem 2rem;
+  margin-bottom: 4rem;
+  
+  background: #25D366;
+  border: none;
+  border-radius: 12px;
+  
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.reserva-whatsapp-button:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.reserva-whatsapp-button svg,
+.reserva-whatsapp-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Grid de Cards de Informações */
+.reserva-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 0;
+  padding-bottom: 4rem;
+}
+
+/* BorderGlow wrapper — cards de informações (importar reserva.css depois de BorderGlow para estes overrides) */
+.reserva-info-border-glow.border-glow-card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.reserva-info-border-glow {
+  width: 100%;
+  min-width: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reserva-info-border-glow:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(160, 149, 112, 0.12);
+}
+
+.reserva-info-border-glow .border-glow-inner {
+  overflow: visible;
+}
+
+/* Cards de Informações (conteúdo interno) */
+.reserva-info-card {
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  background: transparent;
+  text-align: center;
+  transition: inherit;
+}
+
+.reserva-info-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.reserva-info-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.reserva-info-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1.25rem 0;
+}
+
+.reserva-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reserva-info-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.reserva-info-highlight {
+  color: #A09570 !important;
+  font-weight: 500 !important;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .reserva-section {
+    padding: 3rem 1rem 0;
+  }
+
+  .reserva-title {
+    font-size: 2rem;
+  }
+
+  .reserva-description {
+    font-size: 0.9rem;
+    margin: 0.75rem 0 2rem;
+  }
+
+  .reserva-whatsapp-button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .reserva-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 0;
+    padding-bottom: 3rem;
+  }
+
+  .reserva-info-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .reserva-info-icon {
+    font-size: 2rem;
+  }
+
+  .reserva-info-title {
+    font-size: 1.1rem;
+  }
+
+  .reserva-info-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reserva-title {
+    font-size: 1.75rem;
+  }
+
+  .reserva-whatsapp-button {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .reserva-info-card {
+    padding: 1.25rem 1rem;
+  }
+}
+

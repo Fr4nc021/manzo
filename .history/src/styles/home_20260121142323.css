@@ -1,0 +1,37 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+/* Texto superior */
+.title-home {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #A09570;
+  text-align: center;
+}
+
+.subtitle-home {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 4px;
+  max-width: 90%;
+}
+
+/* Container do logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+  margin-bottom: 40px;
+}
+
+/* Logo em si */
+.logo-container img {
+  width: 240px;
+  height: auto;
+}

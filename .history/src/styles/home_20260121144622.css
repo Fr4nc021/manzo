@@ -1,0 +1,80 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+/* Texto superior */
+.title-home {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #A09570;
+  text-align: center;
+}
+
+.subtitle-home {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 4px;
+  max-width: 90%;
+}
+
+/* Container do logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+  margin-bottom: 40px;
+}
+
+/* Logo em si */
+.logo-container img {
+  width: 210px;
+  height: auto;
+}
+
+/* Container dos botões */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Botão base */
+.btn {
+  width: 80%;
+  max-width: 320px;
+  padding: 14px 0;
+  border-radius: 999px;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Botão principal (Ver Cardápio) */
+.btn.primary {
+  background: transparent;
+  border: 1px solid #A09570;
+  color: #ffffff;
+}
+
+/* Botão secundário (Whats) */
+.btn.secondary {
+  background: rgba(160, 149, 112, 0.25);
+  border: 1px solid #A09570;
+  color: #ffffff;
+}
+
+/* Efeito hover */
+.btn:hover {
+  transform: scale(1.02);
+}
+
