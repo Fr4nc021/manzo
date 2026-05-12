@@ -2,6 +2,33 @@ import BorderGlow from "../components/BorderGlow";
 import "../styles/reserva.css";
 import whatsappIcon from "../assets/whatsapp.png";
 
+/** Rotas no Google Maps até o restaurante (sem parâmetros de rastreio ?entry=…). */
+const MANZO_MAPS_URL =
+  "https://www.google.com/maps/dir//Manzo+Carnes+y+Parrilla,+R.+Xingu,+562+-+S%C3%A3o+Bento,+Bento+Gon%C3%A7alves+-+RS,+95703-108/@-29.1703857,-51.5255223,15z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x951c239c944be995:0xea0bd9b8fbf610f2!2m2!1d-51.5091207!2d-29.1708913";
+
+const MANZO_INSTAGRAM_URL = "https://www.instagram.com/manzo_parrilla/";
+
+/** Mesmo ícone do CTA "Acessar cardápio completo" em `Menu.jsx`. */
+function ReservaExternalArrowIcon() {
+  return (
+    <svg
+      className="reserva-info-link-hint-icon"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path
+        d="M5 15L15 5M15 5H5M15 5V15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 const INFO_GLOW_GOLD = {
   glowColor: "46 20 53",
   backgroundColor: "#1E1E1E",
@@ -23,6 +50,8 @@ export default function Reserva() {
     {
       icon: "location",
       title: "Endereço",
+      href: MANZO_MAPS_URL,
+      linkHint: "Abrir rota no Google Maps",
       content: [
         "R. Xingu, 562 - São Bento",
         "Bento Gonçalves - RS",
@@ -33,14 +62,16 @@ export default function Reserva() {
       icon: "clock",
       title: "Horários",
       content: [
-        "Terça a Domingo",
-        "Almoço: 11h30 - 14h30",
-        "Jantar: 19h - 23h"
+        "Almoço (terça a sexta): 11h30 às 13h30",
+        "Almoço (sábados e domingos): 11h30 às 14h",
+        "Jantar (terça a sábado): 18h30 às 22h30"
       ]
     },
     {
       icon: "instagram",
       title: "Instagram",
+      href: MANZO_INSTAGRAM_URL,
+      linkHint: "Abrir perfil no Instagram",
       content: [
         "@manzo_parrilla",
         "Siga-nos para novidades"
@@ -104,33 +135,56 @@ export default function Reserva() {
 
         {/* Cards de Informações */}
         <div className="reserva-info-grid">
-          {infoCards.map((card, index) => (
-            <BorderGlow
-              key={index}
-              className="reserva-info-border-glow"
-              {...INFO_GLOW_GOLD}
-              loopPhaseOffset={index * 120}
-            >
-              <div className="reserva-info-card">
-                <div className="reserva-info-icon">{renderIcon(card.icon)}</div>
-                <h3 className="reserva-info-title">{card.title}</h3>
-                <div className="reserva-info-content">
-                  {card.content.map((line, lineIndex) => (
-                    <p
-                      key={lineIndex}
-                      className={
-                        card.highlight && lineIndex === 0
-                          ? "reserva-info-highlight"
-                          : ""
-                      }
-                    >
-                      {line}
+          {infoCards.map((card, index) => {
+            const CardTag = card.href ? "a" : "div";
+            const linkProps = card.href
+              ? {
+                  href: card.href,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                }
+              : {};
+
+            return (
+              <BorderGlow
+                key={index}
+                className="reserva-info-border-glow"
+                {...INFO_GLOW_GOLD}
+                loopPhaseOffset={index * 120}
+              >
+                <CardTag
+                  className={
+                    "reserva-info-card" +
+                    (card.href ? " reserva-info-card--link" : "")
+                  }
+                  {...linkProps}
+                >
+                  <div className="reserva-info-icon">{renderIcon(card.icon)}</div>
+                  <h3 className="reserva-info-title">{card.title}</h3>
+                  <div className="reserva-info-content">
+                    {card.content.map((line, lineIndex) => (
+                      <p
+                        key={lineIndex}
+                        className={
+                          card.highlight && lineIndex === 0
+                            ? "reserva-info-highlight"
+                            : ""
+                        }
+                      >
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                  {card.linkHint ? (
+                    <p className="reserva-info-link-hint">
+                      <span>{card.linkHint}</span>
+                      <ReservaExternalArrowIcon />
                     </p>
-                  ))}
-                </div>
-              </div>
-            </BorderGlow>
-          ))}
+                  ) : null}
+                </CardTag>
+              </BorderGlow>
+            );
+          })}
         </div>
       </div>
     </section>

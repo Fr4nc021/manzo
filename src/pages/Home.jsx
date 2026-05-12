@@ -21,16 +21,6 @@ export default function Home() {
           <img src={logo} alt="Manzo carnes y parrilla" />
         </div>
         <main className="main-content">
-          <div className="home-address-glass">
-            <p className="title-home">Nos encontre em:</p>
-            <p className="subtitle-home">
-              R. Xingu, 562
-              <br />
-              São Bento, Bento Gonçalves - RS
-            </p>
-          </div>
-
-
           <div className="buttons-container">
             <button
               className="btn primary"
